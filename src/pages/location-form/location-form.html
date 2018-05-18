@@ -1,0 +1,34 @@
+<ion-header>
+
+	<ion-navbar>
+		<ion-title>Agregar nueva locacion</ion-title>
+	</ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+	<form id="locationForm" [formGroup]="locationForm" (ngSubmit)="saveData()">
+		<ion-item>
+			<ion-label floating>Correo Electronico</ion-label>
+			<ion-input type="email" formControlName="mail"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label stacked>C.C</ion-label>
+			<ion-input type="text" formControlName="document"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label stacked>Latitud</ion-label>
+			<ion-input type="text" formControlName="latitude" readonly></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label stacked>Longitud</ion-label>
+			<ion-input type="text" formControlName="longitude" readonly></ion-input>
+		</ion-item>
+		
+		<button ion-button block type="button" (click)= "generateLocation()" color="accenture">Coordenadas</button>
+		<button ion-button block type="submit" >Submit</button>
+		<!-- <button ion-button block type="submit" [disabled]="!locationForm.valid">Submit</button> -->
+	</form>
+
+</ion-content>

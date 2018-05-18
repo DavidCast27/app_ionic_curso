@@ -1,0 +1,33 @@
+
+<ion-header>
+	<ion-navbar>
+		<ion-title>{{data.document}}</ion-title>
+		<ion-buttons end>
+			<button ion-button icon-only (click)="goToMap()">
+				<ion-icon name="map" ></ion-icon>
+			</button>
+		</ion-buttons>
+	</ion-navbar>
+</ion-header>
+<ion-content padding>
+
+	<ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+
+	
+	<ion-list >		
+		<ion-item class="text" *ngFor="let item of items">
+			<p><strong>Latitud</strong> <label>{{item.latitude}}</label></p>
+			<p><strong>Longitud</strong> <label>{{item.longitude}}</label></p>
+			<p><strong>Correo</strong> <label>{{item.mail}}</label></p>
+			<p>{{item.fullDate | date:'yyyy-MMM-dd hh:mm a '}}</p>
+		</ion-item>
+	</ion-list>
+</ion-content>
+
+<ion-footer>
+	<ion-toolbar color="primary">
+		<div *ngIf="data.activateDate">
+			<strong>fecha</strong> <label>{{data.date}}</label>
+		</div>
+	</ion-toolbar>
+</ion-footer>

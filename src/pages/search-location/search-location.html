@@ -1,0 +1,30 @@
+
+<ion-header>
+
+	<ion-navbar>
+		<ion-title>Buscar Registro</ion-title>
+	</ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+	<form [formGroup]="searchForm" (ngSubmit)="search()">
+		<ion-item>
+			<ion-label stacked>C.C</ion-label>
+			<ion-input type="text" formControlName="document"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label>Activar fecha</ion-label>
+			<ion-checkbox color="dark" checked="true" formControlName="activateDate"></ion-checkbox>
+		</ion-item>
+		<ion-item *ngIf="this.searchForm.value.activateDate">
+			<ion-label>Fecha</ion-label>
+			<ion-datetime displayFormat="DD/MMM/YYYY" pickerFormat="DD/MMM/YYYY" formControlName="date" cancelText="Cancelar" doneText="Ok"></ion-datetime>
+		</ion-item>
+
+		<button ion-button block type="submit" [disabled]="!searchForm.valid">Submit</button>
+	</form>
+
+</ion-content>
